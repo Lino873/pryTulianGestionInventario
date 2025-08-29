@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data.OleDb;
 
 namespace pryTulianGestionInventario
 {
@@ -24,7 +27,8 @@ namespace pryTulianGestionInventario
 
         private void frminicio_Load(object sender, EventArgs e)
         {
-
+            clsconexionBD conexion = new clsconexionBD();
+            conexion.ConectarBD();
         }
     }
 }
