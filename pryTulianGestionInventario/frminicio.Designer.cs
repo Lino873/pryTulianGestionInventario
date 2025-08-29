@@ -122,7 +122,7 @@
             // 
             // txtstock
             // 
-            this.txtstock.Location = new System.Drawing.Point(434, 183);
+            this.txtstock.Location = new System.Drawing.Point(433, 183);
             this.txtstock.Name = "txtstock";
             this.txtstock.Size = new System.Drawing.Size(78, 26);
             this.txtstock.TabIndex = 3;
