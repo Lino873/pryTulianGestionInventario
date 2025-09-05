@@ -29,6 +29,21 @@ namespace pryTulianGestionInventario
         {
             clsconexionBD conexion = new clsconexionBD();
             conexion.ConectarBD();
+            conexion.Cargarcategorias(cbxcategoria);
+
+
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            clsconexionBD conexion = new clsconexionBD();
+            conexion.ConectarBD();
+            conexion.Agregarproductos(Convert.ToInt32(txtcodigo.Text), Convert.ToInt32(cbxcategoria.Text), txtnombre.Text, txtdescripcion.Text);
         }
     }
 }

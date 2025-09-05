@@ -21,7 +21,7 @@ namespace pryTulianGestionInventario
         //comando
         //SqlCommand comandoBaseDatos;
         OleDbCommand comandoBaseDatos;
-
+        OleDbDataReader lectorDataReader;
         public string nombreBaseDeDatos;
 
         public void ConectarBD()
@@ -41,6 +41,36 @@ namespace pryTulianGestionInventario
             {
                 MessageBox.Show("Tiene un errorcito - " + error.Message);
             }
+
+        }
+        public void Cargarcategorias(ComboBox listacategoria)
+        {
+            comandoBaseDatos = new OleDbCommand();
+            comandoBaseDatos.Connection = coneccionBaseDatos;
+            comandoBaseDatos.CommandType = System.Data.CommandType.Text;
+            comandoBaseDatos.CommandText =
+                "SELECT marca_nombre FROM Productos";
+            lectorDataReader = comandoBaseDatos.ExecuteReader();
+
+            while (lectorDataReader.Read())
+            {
+                listacategoria.Items.Add(lectorDataReader[0]);
+            }
+
+            
+        }
+        public void Agregarproductos(Int32 id, Int32 categoria, String nombre, String observaciones)
+        {
+           
+            comandoBaseDatos = new OleDbCommand();
+            comandoBaseDatos.Connection = coneccionBaseDatos;
+            comandoBaseDatos.CommandType = System.Data.CommandType.Text;
+            comandoBaseDatos.CommandText =
+                "INSERT INTO Productos (id, categoria_de_producto, marca_nombre, observacione)" +
+                "VALUES (@id, @categoria_de_producto, @marca_nombre, @observaciones)";
+            lectorDataReader = comandoBaseDatos.ExecuteReader();
+
+
 
         }
 
