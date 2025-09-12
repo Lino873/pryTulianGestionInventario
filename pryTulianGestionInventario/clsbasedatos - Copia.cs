@@ -10,26 +10,26 @@ using System.Windows.Forms;
 
 namespace pryTulianGestionInventario
 {
-    internal class clsconexionBD
+    internal class clsconexionBDsql
     {
         //cadena de conexion
-        //sql - string cadenaConexion = "Server=localhost;Database=Ventas2;Trusted_Connection=True;";
-        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\BaseDatos\\DataBase2.accdb";
+        string cadenaConexion = "Server=localhost;Database=Ventas2;User Id='';Password='';Trusted_Connection=True";
+        //string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\BaseDatos\\DataBase2.accdb";
         //conector
-        //SqlConnection coneccionBaseDatos;
-        OleDbConnection coneccionBaseDatos;
+        SqlConnection coneccionBaseDatos;
+        //OleDbConnection coneccionBaseDatos;
         //comando
-        //SqlCommand comandoBaseDatos;
-        OleDbCommand comandoBaseDatos;
-        OleDbDataReader lectorDataReader;
+        SqlCommand comandoBaseDatos;
+        //OleDbCommand comandoBaseDatos;
+        SqlCommand lectorDataReader;
         public string nombreBaseDeDatos;
 
         public void ConectarBD()
         {
             try
             {
-                //coneccionBaseDatos = new SqlConnection(cadenaConexion);
-                coneccionBaseDatos = new OleDbConnection(cadenaConexion);
+                coneccionBaseDatos = new SqlConnection(cadenaConexion);
+                //coneccionBaseDatos = new OleDbConnection(cadenaConexion);
 
                 nombreBaseDeDatos = coneccionBaseDatos.Database;
 
@@ -45,25 +45,25 @@ namespace pryTulianGestionInventario
         }
         public void Cargarcategorias(ComboBox listacategoria)
         {
-            comandoBaseDatos = new OleDbCommand();
+            comandoBaseDatos = new SqlCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
             comandoBaseDatos.CommandType = System.Data.CommandType.Text;
             comandoBaseDatos.CommandText =
                 "SELECT marca_nombre FROM Productos";
-            lectorDataReader = comandoBaseDatos.ExecuteReader();
+            // lectorDataReader = comandoBaseDatos.ExecuteReader();
 
-            while (lectorDataReader.Read())
+            //while (lectorDataReader.Read())
             {
-                listacategoria.Items.Add(lectorDataReader[0]);
+                //listacategoria.Items.Add(lectorDataReader[0]);
             }
 
-            
+
         }
         public void Agregarproductos(Int32 id, Int32 categoria, String nombre, String observaciones)
         {
             try
             {
-                comandoBaseDatos = new OleDbCommand();
+                comandoBaseDatos = new SqlCommand();
                 comandoBaseDatos.Connection = coneccionBaseDatos;
                 comandoBaseDatos.CommandType = System.Data.CommandType.Text;
                 comandoBaseDatos.CommandText =
@@ -87,7 +87,7 @@ namespace pryTulianGestionInventario
         {
             try
             {
-                comandoBaseDatos = new OleDbCommand();
+                comandoBaseDatos = new SqlCommand();
                 comandoBaseDatos.Connection = coneccionBaseDatos;
                 comandoBaseDatos.CommandType = System.Data.CommandType.Text;
                 comandoBaseDatos.CommandText =
@@ -103,7 +103,7 @@ namespace pryTulianGestionInventario
             }
             catch (Exception ex)
             {
-                
+
                 MessageBox.Show("Error al modificar producto: " + ex.Message);
             }
         }
@@ -112,7 +112,7 @@ namespace pryTulianGestionInventario
         {
             try
             {
-                comandoBaseDatos = new OleDbCommand();
+                comandoBaseDatos = new SqlCommand();
                 comandoBaseDatos.Connection = coneccionBaseDatos;
                 comandoBaseDatos.CommandType = System.Data.CommandType.Text;
                 comandoBaseDatos.CommandText =
@@ -125,8 +125,9 @@ namespace pryTulianGestionInventario
             catch (Exception ex)
             {
                 MessageBox.Show("Error al eliminar producto: " + ex.Message);
-               
+
             }
+
         }
 
 

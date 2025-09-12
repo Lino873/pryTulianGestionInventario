@@ -27,7 +27,7 @@ namespace pryTulianGestionInventario
 
         private void frminicio_Load(object sender, EventArgs e)
         {
-            clsconexionBD conexion = new clsconexionBD();
+            clsconexionBDsql conexion = new clsconexionBDsql();
             conexion.ConectarBD();
             conexion.Cargarcategorias(cbxcategoria);
 
@@ -45,5 +45,19 @@ namespace pryTulianGestionInventario
             conexion.ConectarBD();
             conexion.Agregarproductos(Convert.ToInt32(txtcodigo.Text), Convert.ToInt32(cbxcategoria.Text), txtnombre.Text, txtdescripcion.Text);
         }
+
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+            clsconexionBD conexion = new clsconexionBD();
+            conexion.ConectarBD();
+            conexion.Modificarproductos(Convert.ToInt32(txtcodigo.Text), Convert.ToInt32(cbxcategoria.Text), txtnombre.Text, txtdescripcion.Text);
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            clsconexionBD conexion = new clsconexionBD();
+            conexion.ConectarBD();
+            conexion.Eliminarproductos(Convert.ToInt32(txtcodigo.Text));
+        }   
     }
 }

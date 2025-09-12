@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsbasedatos - Copia.cs" />
     <Compile Include="clsbasedatos.cs" />
     <Compile Include="frminicio.cs">
       <SubType>Form</SubType>
