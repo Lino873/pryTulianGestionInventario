@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frminicio));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Ventas2 = new System.Windows.Forms.TabControl();
@@ -46,59 +49,36 @@
             this.cbxcategoria = new System.Windows.Forms.ComboBox();
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnbuscar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtcodigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbpventas = new System.Windows.Forms.TabPage();
-            this.lblarticulo = new System.Windows.Forms.Label();
-            this.lblmarca = new System.Windows.Forms.Label();
-            this.lbltemporada = new System.Windows.Forms.Label();
-            this.lblsexo = new System.Windows.Forms.Label();
-            this.lblrubro = new System.Windows.Forms.Label();
-            this.lblnombre = new System.Windows.Forms.Label();
             this.gbxventas2 = new System.Windows.Forms.GroupBox();
-            this.lblpreciocorto = new System.Windows.Forms.Label();
-            this.lblpreciomayor = new System.Windows.Forms.Label();
-            this.lblpreciomenor = new System.Windows.Forms.Label();
-            this.lblarticuloviejo = new System.Windows.Forms.Label();
-            this.lblpromocion = new System.Windows.Forms.Label();
-            this.lblestado = new System.Windows.Forms.Label();
-            this.btnagregarventas = new System.Windows.Forms.Button();
-            this.btnmodificarventas = new System.Windows.Forms.Button();
-            this.btneliminarventas = new System.Windows.Forms.Button();
+            this.dgventas = new System.Windows.Forms.DataGridView();
             this.gbxarticulo = new System.Windows.Forms.GroupBox();
-            this.txtarticulo = new System.Windows.Forms.TextBox();
-            this.txtnombreventas = new System.Windows.Forms.TextBox();
-            this.txtmarca = new System.Windows.Forms.TextBox();
-            this.txttemporada = new System.Windows.Forms.TextBox();
-            this.txtsexo = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.txtrubro = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.btnbuscarventas = new System.Windows.Forms.Button();
-            this.gbxnombrerubro = new System.Windows.Forms.GroupBox();
-            this.gbxcaracteristicas = new System.Windows.Forms.GroupBox();
+            this.txtarticulo = new System.Windows.Forms.TextBox();
+            this.lblarticulo = new System.Windows.Forms.Label();
+            this.tabreporte = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chtreporte = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Ventas2.SuspendLayout();
             this.tbpinicio.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.tbpventas.SuspendLayout();
             this.gbxventas2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgventas)).BeginInit();
             this.gbxarticulo.SuspendLayout();
-            this.gbxnombrerubro.SuspendLayout();
-            this.gbxcaracteristicas.SuspendLayout();
+            this.tabreporte.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chtreporte)).BeginInit();
             this.SuspendLayout();
             // 
             // Ventas2
             // 
             this.Ventas2.Controls.Add(this.tbpinicio);
             this.Ventas2.Controls.Add(this.tbpventas);
+            this.Ventas2.Controls.Add(this.tabreporte);
             this.Ventas2.Location = new System.Drawing.Point(29, 25);
             this.Ventas2.Name = "Ventas2";
             this.Ventas2.SelectedIndex = 0;
@@ -121,6 +101,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DarkCyan;
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtcodigo);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnagregar);
             this.groupBox1.Controls.Add(this.txtdescripcion);
@@ -134,7 +116,6 @@
             this.groupBox1.Controls.Add(this.cbxcategoria);
             this.groupBox1.Controls.Add(this.txtprecio);
             this.groupBox1.Controls.Add(this.txtnombre);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(42, -15);
             this.groupBox1.Name = "groupBox1";
@@ -262,33 +243,11 @@
             this.txtnombre.Size = new System.Drawing.Size(166, 26);
             this.txtnombre.TabIndex = 1;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnbuscar);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtcodigo);
-            this.groupBox2.Location = new System.Drawing.Point(22, 18);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 66);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            // 
-            // btnbuscar
-            // 
-            this.btnbuscar.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbuscar.Location = new System.Drawing.Point(198, 18);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(95, 35);
-            this.btnbuscar.TabIndex = 13;
-            this.btnbuscar.Text = "Buscar";
-            this.btnbuscar.UseVisualStyleBackColor = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 22);
+            this.label6.Location = new System.Drawing.Point(27, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 24);
             this.label6.TabIndex = 12;
@@ -296,7 +255,7 @@
             // 
             // txtcodigo
             // 
-            this.txtcodigo.Location = new System.Drawing.Point(105, 22);
+            this.txtcodigo.Location = new System.Drawing.Point(127, 36);
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(79, 26);
             this.txtcodigo.TabIndex = 2;
@@ -322,172 +281,24 @@
             this.tbpventas.TabIndex = 1;
             this.tbpventas.Text = "Ventas2";
             // 
-            // lblarticulo
-            // 
-            this.lblarticulo.AutoSize = true;
-            this.lblarticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblarticulo.Location = new System.Drawing.Point(23, 17);
-            this.lblarticulo.Name = "lblarticulo";
-            this.lblarticulo.Size = new System.Drawing.Size(78, 24);
-            this.lblarticulo.TabIndex = 0;
-            this.lblarticulo.Text = "Artículo:";
-            // 
-            // lblmarca
-            // 
-            this.lblmarca.AutoSize = true;
-            this.lblmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmarca.Location = new System.Drawing.Point(6, 14);
-            this.lblmarca.Name = "lblmarca";
-            this.lblmarca.Size = new System.Drawing.Size(67, 24);
-            this.lblmarca.TabIndex = 1;
-            this.lblmarca.Text = "Marca:";
-            // 
-            // lbltemporada
-            // 
-            this.lbltemporada.AutoSize = true;
-            this.lbltemporada.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltemporada.Location = new System.Drawing.Point(1, 72);
-            this.lbltemporada.Name = "lbltemporada";
-            this.lbltemporada.Size = new System.Drawing.Size(113, 24);
-            this.lbltemporada.TabIndex = 2;
-            this.lbltemporada.Text = "Temporada:";
-            // 
-            // lblsexo
-            // 
-            this.lblsexo.AutoSize = true;
-            this.lblsexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsexo.Location = new System.Drawing.Point(1, 125);
-            this.lblsexo.Name = "lblsexo";
-            this.lblsexo.Size = new System.Drawing.Size(59, 24);
-            this.lblsexo.TabIndex = 3;
-            this.lblsexo.Text = "Sexo:";
-            // 
-            // lblrubro
-            // 
-            this.lblrubro.AutoSize = true;
-            this.lblrubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblrubro.Location = new System.Drawing.Point(322, 16);
-            this.lblrubro.Name = "lblrubro";
-            this.lblrubro.Size = new System.Drawing.Size(67, 24);
-            this.lblrubro.TabIndex = 4;
-            this.lblrubro.Text = "Rubro:";
-            // 
-            // lblnombre
-            // 
-            this.lblnombre.AutoSize = true;
-            this.lblnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnombre.Location = new System.Drawing.Point(6, 19);
-            this.lblnombre.Name = "lblnombre";
-            this.lblnombre.Size = new System.Drawing.Size(84, 24);
-            this.lblnombre.TabIndex = 5;
-            this.lblnombre.Text = "Nombre:";
-            // 
             // gbxventas2
             // 
+            this.gbxventas2.Controls.Add(this.dgventas);
             this.gbxventas2.Controls.Add(this.gbxarticulo);
-            this.gbxventas2.Controls.Add(this.btneliminarventas);
-            this.gbxventas2.Controls.Add(this.btnmodificarventas);
-            this.gbxventas2.Controls.Add(this.btnagregarventas);
-            this.gbxventas2.Controls.Add(this.gbxnombrerubro);
-            this.gbxventas2.Controls.Add(this.gbxcaracteristicas);
             this.gbxventas2.Location = new System.Drawing.Point(6, 6);
             this.gbxventas2.Name = "gbxventas2";
             this.gbxventas2.Size = new System.Drawing.Size(630, 352);
             this.gbxventas2.TabIndex = 6;
             this.gbxventas2.TabStop = false;
+            this.gbxventas2.Enter += new System.EventHandler(this.gbxventas2_Enter);
             // 
-            // lblpreciocorto
+            // dgventas
             // 
-            this.lblpreciocorto.AutoSize = true;
-            this.lblpreciocorto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpreciocorto.Location = new System.Drawing.Point(405, 72);
-            this.lblpreciocorto.Name = "lblpreciocorto";
-            this.lblpreciocorto.Size = new System.Drawing.Size(116, 24);
-            this.lblpreciocorto.TabIndex = 6;
-            this.lblpreciocorto.Text = "Precio corto:";
-            // 
-            // lblpreciomayor
-            // 
-            this.lblpreciomayor.AutoSize = true;
-            this.lblpreciomayor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpreciomayor.Location = new System.Drawing.Point(405, 124);
-            this.lblpreciomayor.Name = "lblpreciomayor";
-            this.lblpreciomayor.Size = new System.Drawing.Size(126, 24);
-            this.lblpreciomayor.TabIndex = 7;
-            this.lblpreciomayor.Text = "Precio mayor:";
-            // 
-            // lblpreciomenor
-            // 
-            this.lblpreciomenor.AutoSize = true;
-            this.lblpreciomenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpreciomenor.Location = new System.Drawing.Point(405, 14);
-            this.lblpreciomenor.Name = "lblpreciomenor";
-            this.lblpreciomenor.Size = new System.Drawing.Size(129, 24);
-            this.lblpreciomenor.TabIndex = 8;
-            this.lblpreciomenor.Text = "Precio menor:";
-            // 
-            // lblarticuloviejo
-            // 
-            this.lblarticuloviejo.AutoSize = true;
-            this.lblarticuloviejo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblarticuloviejo.Location = new System.Drawing.Point(200, 125);
-            this.lblarticuloviejo.Name = "lblarticuloviejo";
-            this.lblarticuloviejo.Size = new System.Drawing.Size(122, 24);
-            this.lblarticuloviejo.TabIndex = 9;
-            this.lblarticuloviejo.Text = "Artículo viejo:";
-            // 
-            // lblpromocion
-            // 
-            this.lblpromocion.AutoSize = true;
-            this.lblpromocion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpromocion.Location = new System.Drawing.Point(200, 14);
-            this.lblpromocion.Name = "lblpromocion";
-            this.lblpromocion.Size = new System.Drawing.Size(107, 24);
-            this.lblpromocion.TabIndex = 10;
-            this.lblpromocion.Text = "Promocion:";
-            // 
-            // lblestado
-            // 
-            this.lblestado.AutoSize = true;
-            this.lblestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblestado.Location = new System.Drawing.Point(200, 72);
-            this.lblestado.Name = "lblestado";
-            this.lblestado.Size = new System.Drawing.Size(73, 24);
-            this.lblestado.TabIndex = 11;
-            this.lblestado.Text = "Estado:";
-            // 
-            // btnagregarventas
-            // 
-            this.btnagregarventas.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnagregarventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnagregarventas.Location = new System.Drawing.Point(58, 302);
-            this.btnagregarventas.Name = "btnagregarventas";
-            this.btnagregarventas.Size = new System.Drawing.Size(116, 39);
-            this.btnagregarventas.TabIndex = 12;
-            this.btnagregarventas.Text = "Agregar";
-            this.btnagregarventas.UseVisualStyleBackColor = false;
-            // 
-            // btnmodificarventas
-            // 
-            this.btnmodificarventas.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnmodificarventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmodificarventas.Location = new System.Drawing.Point(233, 302);
-            this.btnmodificarventas.Name = "btnmodificarventas";
-            this.btnmodificarventas.Size = new System.Drawing.Size(116, 39);
-            this.btnmodificarventas.TabIndex = 13;
-            this.btnmodificarventas.Text = "Modificar";
-            this.btnmodificarventas.UseVisualStyleBackColor = false;
-            // 
-            // btneliminarventas
-            // 
-            this.btneliminarventas.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btneliminarventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminarventas.Location = new System.Drawing.Point(424, 302);
-            this.btneliminarventas.Name = "btneliminarventas";
-            this.btneliminarventas.Size = new System.Drawing.Size(116, 39);
-            this.btneliminarventas.TabIndex = 14;
-            this.btneliminarventas.Text = "Eliminar";
-            this.btneliminarventas.UseVisualStyleBackColor = false;
+            this.dgventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgventas.Location = new System.Drawing.Point(62, 69);
+            this.dgventas.Name = "dgventas";
+            this.dgventas.Size = new System.Drawing.Size(488, 227);
+            this.dgventas.TabIndex = 16;
             // 
             // gbxarticulo
             // 
@@ -500,90 +311,6 @@
             this.gbxarticulo.TabIndex = 15;
             this.gbxarticulo.TabStop = false;
             // 
-            // txtarticulo
-            // 
-            this.txtarticulo.Location = new System.Drawing.Point(98, 19);
-            this.txtarticulo.Name = "txtarticulo";
-            this.txtarticulo.Size = new System.Drawing.Size(138, 20);
-            this.txtarticulo.TabIndex = 1;
-            // 
-            // txtnombreventas
-            // 
-            this.txtnombreventas.Location = new System.Drawing.Point(102, 19);
-            this.txtnombreventas.Name = "txtnombreventas";
-            this.txtnombreventas.Size = new System.Drawing.Size(190, 20);
-            this.txtnombreventas.TabIndex = 16;
-            // 
-            // txtmarca
-            // 
-            this.txtmarca.Location = new System.Drawing.Point(79, 19);
-            this.txtmarca.Name = "txtmarca";
-            this.txtmarca.Size = new System.Drawing.Size(64, 20);
-            this.txtmarca.TabIndex = 17;
-            // 
-            // txttemporada
-            // 
-            this.txttemporada.Location = new System.Drawing.Point(110, 77);
-            this.txttemporada.Name = "txttemporada";
-            this.txttemporada.Size = new System.Drawing.Size(74, 20);
-            this.txttemporada.TabIndex = 18;
-            // 
-            // txtsexo
-            // 
-            this.txtsexo.Location = new System.Drawing.Point(66, 128);
-            this.txtsexo.Name = "txtsexo";
-            this.txtsexo.Size = new System.Drawing.Size(67, 20);
-            this.txtsexo.TabIndex = 19;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(313, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(74, 20);
-            this.textBox1.TabIndex = 20;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(275, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(74, 20);
-            this.textBox2.TabIndex = 21;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(325, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(74, 20);
-            this.textBox3.TabIndex = 22;
-            // 
-            // txtrubro
-            // 
-            this.txtrubro.Location = new System.Drawing.Point(415, 21);
-            this.txtrubro.Name = "txtrubro";
-            this.txtrubro.Size = new System.Drawing.Size(96, 20);
-            this.txtrubro.TabIndex = 23;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(522, 76);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(81, 20);
-            this.textBox5.TabIndex = 24;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(529, 19);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(74, 20);
-            this.textBox6.TabIndex = 25;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(529, 128);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(74, 20);
-            this.textBox7.TabIndex = 26;
-            // 
             // btnbuscarventas
             // 
             this.btnbuscarventas.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -594,44 +321,61 @@
             this.btnbuscarventas.TabIndex = 15;
             this.btnbuscarventas.Text = "Buscar";
             this.btnbuscarventas.UseVisualStyleBackColor = false;
+            this.btnbuscarventas.Click += new System.EventHandler(this.btnbuscarventas_Click);
             // 
-            // gbxnombrerubro
+            // txtarticulo
             // 
-            this.gbxnombrerubro.Controls.Add(this.txtrubro);
-            this.gbxnombrerubro.Controls.Add(this.txtnombreventas);
-            this.gbxnombrerubro.Controls.Add(this.lblrubro);
-            this.gbxnombrerubro.Controls.Add(this.lblnombre);
-            this.gbxnombrerubro.Location = new System.Drawing.Point(38, 60);
-            this.gbxnombrerubro.Name = "gbxnombrerubro";
-            this.gbxnombrerubro.Size = new System.Drawing.Size(565, 56);
-            this.gbxnombrerubro.TabIndex = 27;
-            this.gbxnombrerubro.TabStop = false;
+            this.txtarticulo.Location = new System.Drawing.Point(98, 19);
+            this.txtarticulo.Name = "txtarticulo";
+            this.txtarticulo.Size = new System.Drawing.Size(138, 20);
+            this.txtarticulo.TabIndex = 1;
             // 
-            // gbxcaracteristicas
+            // lblarticulo
             // 
-            this.gbxcaracteristicas.Controls.Add(this.textBox7);
-            this.gbxcaracteristicas.Controls.Add(this.textBox6);
-            this.gbxcaracteristicas.Controls.Add(this.textBox5);
-            this.gbxcaracteristicas.Controls.Add(this.textBox3);
-            this.gbxcaracteristicas.Controls.Add(this.lblpromocion);
-            this.gbxcaracteristicas.Controls.Add(this.textBox2);
-            this.gbxcaracteristicas.Controls.Add(this.lblmarca);
-            this.gbxcaracteristicas.Controls.Add(this.textBox1);
-            this.gbxcaracteristicas.Controls.Add(this.txtsexo);
-            this.gbxcaracteristicas.Controls.Add(this.txttemporada);
-            this.gbxcaracteristicas.Controls.Add(this.txtmarca);
-            this.gbxcaracteristicas.Controls.Add(this.lblestado);
-            this.gbxcaracteristicas.Controls.Add(this.lblarticuloviejo);
-            this.gbxcaracteristicas.Controls.Add(this.lblpreciomenor);
-            this.gbxcaracteristicas.Controls.Add(this.lblpreciomayor);
-            this.gbxcaracteristicas.Controls.Add(this.lblpreciocorto);
-            this.gbxcaracteristicas.Controls.Add(this.lblsexo);
-            this.gbxcaracteristicas.Controls.Add(this.lbltemporada);
-            this.gbxcaracteristicas.Location = new System.Drawing.Point(0, 126);
-            this.gbxcaracteristicas.Name = "gbxcaracteristicas";
-            this.gbxcaracteristicas.Size = new System.Drawing.Size(629, 170);
-            this.gbxcaracteristicas.TabIndex = 28;
-            this.gbxcaracteristicas.TabStop = false;
+            this.lblarticulo.AutoSize = true;
+            this.lblarticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblarticulo.Location = new System.Drawing.Point(23, 17);
+            this.lblarticulo.Name = "lblarticulo";
+            this.lblarticulo.Size = new System.Drawing.Size(78, 24);
+            this.lblarticulo.TabIndex = 0;
+            this.lblarticulo.Text = "Artículo:";
+            // 
+            // tabreporte
+            // 
+            this.tabreporte.Controls.Add(this.groupBox3);
+            this.tabreporte.Location = new System.Drawing.Point(4, 22);
+            this.tabreporte.Name = "tabreporte";
+            this.tabreporte.Padding = new System.Windows.Forms.Padding(3);
+            this.tabreporte.Size = new System.Drawing.Size(642, 364);
+            this.tabreporte.TabIndex = 2;
+            this.tabreporte.Text = "Reporte";
+            this.tabreporte.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.DarkCyan;
+            this.groupBox3.Controls.Add(this.chtreporte);
+            this.groupBox3.Location = new System.Drawing.Point(6, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(630, 352);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            // 
+            // chtreporte
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chtreporte.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chtreporte.Legends.Add(legend1);
+            this.chtreporte.Location = new System.Drawing.Point(90, 64);
+            this.chtreporte.Name = "chtreporte";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chtreporte.Series.Add(series1);
+            this.chtreporte.Size = new System.Drawing.Size(438, 270);
+            this.chtreporte.TabIndex = 13;
+            this.chtreporte.Text = "chart1";
             // 
             // frminicio
             // 
@@ -649,16 +393,14 @@
             this.tbpinicio.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.tbpventas.ResumeLayout(false);
             this.gbxventas2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgventas)).EndInit();
             this.gbxarticulo.ResumeLayout(false);
             this.gbxarticulo.PerformLayout();
-            this.gbxnombrerubro.ResumeLayout(false);
-            this.gbxnombrerubro.PerformLayout();
-            this.gbxcaracteristicas.ResumeLayout(false);
-            this.gbxcaracteristicas.PerformLayout();
+            this.tabreporte.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chtreporte)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -682,42 +424,17 @@
         private System.Windows.Forms.ComboBox cbxcategoria;
         private System.Windows.Forms.TextBox txtprecio;
         private System.Windows.Forms.TextBox txtnombre;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtcodigo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbxventas2;
-        private System.Windows.Forms.Label lblarticuloviejo;
-        private System.Windows.Forms.Label lblpreciomenor;
-        private System.Windows.Forms.Label lblpreciomayor;
-        private System.Windows.Forms.Label lblpreciocorto;
-        private System.Windows.Forms.Label lblnombre;
-        private System.Windows.Forms.Label lblrubro;
-        private System.Windows.Forms.Label lblsexo;
-        private System.Windows.Forms.Label lbltemporada;
-        private System.Windows.Forms.Label lblmarca;
         private System.Windows.Forms.Label lblarticulo;
-        private System.Windows.Forms.Label lblestado;
-        private System.Windows.Forms.Label lblpromocion;
         private System.Windows.Forms.GroupBox gbxarticulo;
-        private System.Windows.Forms.Button btneliminarventas;
-        private System.Windows.Forms.Button btnmodificarventas;
-        private System.Windows.Forms.Button btnagregarventas;
-        private System.Windows.Forms.TextBox txtsexo;
-        private System.Windows.Forms.TextBox txttemporada;
-        private System.Windows.Forms.TextBox txtmarca;
-        private System.Windows.Forms.TextBox txtnombreventas;
         private System.Windows.Forms.TextBox txtarticulo;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox txtrubro;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnbuscarventas;
-        private System.Windows.Forms.GroupBox gbxnombrerubro;
-        private System.Windows.Forms.GroupBox gbxcaracteristicas;
+        private System.Windows.Forms.TabPage tabreporte;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgventas;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chtreporte;
     }
 }

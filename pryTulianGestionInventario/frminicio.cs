@@ -27,12 +27,16 @@ namespace pryTulianGestionInventario
 
         private void frminicio_Load(object sender, EventArgs e)
         {
-            clsconexionBDsql conexion = new clsconexionBDsql();
+            clsconexionBD conexion = new clsconexionBD();
             conexion.ConectarBD();
             conexion.Cargarcategorias(cbxcategoria);
-
-
+     
+            conexion.GenerarReporte(chtreporte);
         }
+
+
+
+    
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
@@ -43,14 +47,14 @@ namespace pryTulianGestionInventario
         {
             clsconexionBD conexion = new clsconexionBD();
             conexion.ConectarBD();
-            conexion.Agregarproductos(Convert.ToInt32(txtcodigo.Text), Convert.ToInt32(cbxcategoria.Text), txtnombre.Text, txtdescripcion.Text);
+            conexion.Agregarproductos(Convert.ToInt32(txtcodigo.Text), Convert.ToInt32(cbxcategoria.Text), txtnombre.Text, txtdescripcion.Text, Convert.ToInt32(txtprecio.Text), Convert.ToInt32(txtstock.Text));
         }
 
         private void btnmodificar_Click(object sender, EventArgs e)
         {
             clsconexionBD conexion = new clsconexionBD();
             conexion.ConectarBD();
-            conexion.Modificarproductos(Convert.ToInt32(txtcodigo.Text), Convert.ToInt32(cbxcategoria.Text), txtnombre.Text, txtdescripcion.Text);
+            conexion.Modificarproductos(Convert.ToInt32(txtcodigo.Text), Convert.ToInt32(cbxcategoria.Text), txtnombre.Text, txtdescripcion.Text, Convert.ToInt32(txtprecio.Text), Convert.ToInt32(txtstock.Text));
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -58,6 +62,23 @@ namespace pryTulianGestionInventario
             clsconexionBD conexion = new clsconexionBD();
             conexion.ConectarBD();
             conexion.Eliminarproductos(Convert.ToInt32(txtcodigo.Text));
-        }   
+        }
+
+        private void btnbuscarventas_Click(object sender, EventArgs e)
+        {
+            clsconexionBD conexion = new clsconexionBD();
+            conexion.ConectarBD();
+            conexion.BuscarProductos(txtarticulo.Text, dgventas);
+        }
+
+        private void gbxventas2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+        }
+         
     }
 }
